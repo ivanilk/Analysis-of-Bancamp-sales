@@ -1,0 +1,11 @@
+data/
+GCPKeys/
+*.tfstate
+*.tfstate.*
+terraform/.terraform
+*.terraform.*
+*logs/
+*.env
+*__pycache__/
+.history
+.ipynb_checkpoints/

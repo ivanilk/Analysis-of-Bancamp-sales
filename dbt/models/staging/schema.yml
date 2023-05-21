@@ -1,0 +1,24 @@
+version: 2
+
+sources:
+    - name: ny_data
+      # database: taxi-rides-ny-339813
+      database: valued-watch-381913
+      schema: dezoom
+      tables:
+        - name: yellow_trips
+        - name: green_trips
+      
+models:
+  - name: stg_yellow_tripdata
+    description: >
+        Trips made by New York City's iconic yellow taxis. 
+    columns:
+        - name: tripid
+          description: Primary key for this table, generated with a concatenation of vendorid+pickup_datetime
+      #Kiểm tra kiểu dữ liệu,.... khi run models
+          tests:
+            - unique:
+                severity: warn
+            - not_null:
+                severity: warn
