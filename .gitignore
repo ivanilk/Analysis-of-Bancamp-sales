@@ -9,3 +9,4 @@ terraform/.terraform
 *__pycache__/
 .history
 .ipynb_checkpoints/
+Main.ipynb
