@@ -1,6 +1,6 @@
 import configparser
-import Path
+from pathlib import Path
 config = configparser.ConfigParser()
 config.read(Path('../config.ini'))
 
-print(config)
+print(config['GCP']["data_lake_bucket"])
