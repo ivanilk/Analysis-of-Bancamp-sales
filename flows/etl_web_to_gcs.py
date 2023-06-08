@@ -15,11 +15,13 @@ config.read('../config.ini')
 @task(retries=3)
 def fetch(dataset_url: str) -> pd.DataFrame:
     out = dataset_url.split('/')[-1].replace('?dl=1','')
-    filename=f"../data/{out}"
-    if os.path.exists(filename):
-        os.remove(filename) 
-    wget.download(dataset_url, out=filename)
-    df = pd.read_csv(filename)
+    data_dir=f"../data"
+    Path(data_dir).mkdir(parents=True, exist_ok=True)
+    path = Path(f'{data_dir}/{out}')
+    if os.path.exists(path):
+        os.remove(path) 
+    wget.download(dataset_url, out=str(path))
+    df = pd.read_csv(path)
     return df
 
 
