@@ -44,8 +44,7 @@ jobs:
       - name: Run all flows
         id: run
         run: |
-          export PYTHONPATH="${PYTHONPATH}:/home/runner/work/prefect-getting-started/prefect-getting-started/"
-          python ./flows/gcs_to_bq.py
+          python flows/gcs_to_bq.py
 
   deployment:
     name: Buid and apply deployment
