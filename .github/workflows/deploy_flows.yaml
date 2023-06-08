@@ -36,7 +36,7 @@ jobs:
         flows: ${{ fromJson(needs.list-flows.outputs.matrix) }}
     steps:
       - name: checkout
-        uses: action/checkout@v3
+        uses: actions/checkout@v3
         with:
           persist-credentials: false
           fetch-depth: 0
@@ -66,7 +66,7 @@ jobs:
 
   deployment:
     name: Buid and apply deployment
-
+    needs: run-flows
     runs-on: ubuntu-latest
     timeout-minutes: 45
 
