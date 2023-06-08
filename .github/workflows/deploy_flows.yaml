@@ -44,22 +44,22 @@ jobs:
       - name: Run all flows
         id: run
         run: |
-          python flows/etl_gcs_to_bq.py
+          python flows/test.py
 
-  deployment:
-    name: Buid and apply deployment
-    needs: run-flows
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
+  # deployment:
+  #   name: Buid and apply deployment
+  #   needs: run-flows
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 45
 
-    steps:
+  #   steps:
 
-      - name: Buid and apply deployment
-        run: |
-          prefect deployment build flows/etl_gcs_to_bq.py:etl_gcs_to_bq \
-            -n "Main ETL" \
-            -sb github/git-block \
-            -t github \
-            -q githubwq \
-            -v $GITHUB_SHA \
-            --apply
+  #     - name: Buid and apply deployment
+  #       run: |
+  #         prefect deployment build flows/etl_gcs_to_bq.py:etl_gcs_to_bq \
+  #           -n "Main ETL" \
+  #           -sb github/git-block \
+  #           -t github \
+  #           -q githubwq \
+  #           -v $GITHUB_SHA \
+  #           --apply
