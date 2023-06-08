@@ -9,13 +9,13 @@ import configparser
 import wget
 import os
 config = configparser.ConfigParser()
-config.read(Path('../config.ini'))
+config.read(Path('./config.ini'))
 
 #task(retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
 @task(retries=3)
 def fetch(dataset_url: str) -> pd.DataFrame:
     out = dataset_url.split('/')[-1].replace('?dl=1','')
-    data_dir=f"../data"
+    data_dir=f"./data"
     Path(data_dir).mkdir(parents=True, exist_ok=True)
     path = Path(f'{data_dir}/{out}')
     if os.path.exists(path):

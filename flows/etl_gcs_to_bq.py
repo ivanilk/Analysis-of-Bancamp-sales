@@ -6,15 +6,15 @@ from prefect_gcp import GcpCredentials
 import configparser
 from etl_web_to_gcs import etl_web_to_gcs
 config = configparser.ConfigParser()
-config.read(Path('../config.ini'))
+config.read(Path('./config.ini'))
 
 @task(retries=3)
 def extract_from_gcs(dataset_file: str,) -> Path:
     """Download data from GCS"""
     gcs_path = f"data/{dataset_file}.parquet"
     gcs_block = GcsBucket.load(config['PREFECT']['GcsBucket_block'])
-    gcs_block.get_directory(local_path=f"..")
-    return Path(f"../{gcs_path}")
+    gcs_block.get_directory(local_path=f".")
+    return Path(f"./{gcs_path}")
 
 
 @task()
