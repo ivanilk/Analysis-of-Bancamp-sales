@@ -55,7 +55,7 @@ jobs:
 
       - name: Prefect Cloud login
         run: |
-          prefect cloud login -k ${{secrets.PREFECT_API_KEY}} 
+          prefect cloud login --key ${{secrets.PREFECT_API_KEY}} 
           prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
 
       - name: Run all flows
