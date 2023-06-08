@@ -5,13 +5,20 @@ name: Main ETL
 description: Main ETL flow to load data into Big Query
 version: b23e0988ede7419154b191c51094ef8d
 # The work queue that will handle this deployment's runs
-work_queue_name: default
-work_pool_name: null
-tags: []
+work_queue_name: githubwq
+work_pool_name: default-agent-pool
+tags:
+- github
 parameters: {}
 schedule: null
-is_schedule_active: null
+is_schedule_active: true
 infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-gcs-to-bq
+manifest_path: null
 infrastructure:
   type: process
   env: {}
@@ -20,16 +27,21 @@ infrastructure:
   command: null
   stream_output: true
   working_dir: null
+  _block_document_id: 8224b690-dc7e-4247-999a-cba918c0808b
+  _block_document_name: anonymous-8d7d34a0-e1e0-49c6-932a-6b5e2dfb27f7
+  _is_anonymous: true
   block_type_slug: process
   _block_type_slug: process
-
-###
-### DO NOT EDIT BELOW THIS LINE
-###
-flow_name: etl-gcs-to-bq
-manifest_path: null
-storage: null
-path: E:\COURSE\data-engineering-zoomcamp-main\de-zoomcamp-final-project\flows
+storage:
+  bucket_path: bancamp_data_lake/Code
+  service_account_info: '**********'
+  project: null
+  _block_document_id: 3f964796-a9bf-49e7-b71b-526599aa3459
+  _block_document_name: gcs-zoom
+  _is_anonymous: false
+  block_type_slug: gcs
+  _block_type_slug: gcs
+path: ''
 entrypoint: etl_gcs_to_bq.py:etl_gcs_to_bq
 parameter_openapi_schema:
   title: Parameters
@@ -37,4 +49,4 @@ parameter_openapi_schema:
   properties: {}
   required: null
   definitions: null
-timestamp: '2023-05-25T00:18:10.852659+00:00'
+timestamp: '2023-05-30T11:34:47.065333+00:00'

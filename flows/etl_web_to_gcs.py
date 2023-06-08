@@ -16,9 +16,9 @@ config.read('../config.ini')
 def fetch(dataset_url: str) -> pd.DataFrame:
     out = dataset_url.split('/')[-1].replace('?dl=1','')
     filename=f"../data/{out}"
-    # if os.path.exists(filename):
-    #     os.remove(filename) 
-    # wget.download(dataset_url, out=filename)
+    if os.path.exists(filename):
+        os.remove(filename) 
+    wget.download(dataset_url, out=filename)
     df = pd.read_csv(filename)
     return df
 
