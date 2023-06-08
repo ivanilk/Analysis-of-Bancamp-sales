@@ -2,8 +2,8 @@
 name: Deploy to Cloud 
 
 env: 
-  PREFECT_API_KEY: ${{ secret.PREFECT_API_KEY }}
-  PREFECT_API_URL: ${{ secret.PREFECT_API_URL }}
+  PREFECT_API_KEY: ${{ secrets.PREFECT_API_KEY }}
+  PREFECT_API_URL: ${{ secrets.PREFECT_API_URL }}
 
 on: 
   pull_request:
