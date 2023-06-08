@@ -6,7 +6,7 @@ from prefect_gcp import GcpCredentials
 import configparser
 from etl_web_to_gcs import etl_web_to_gcs
 config = configparser.ConfigParser()
-config.read('../config.ini')
+config.read(Path('../config.ini'))
 
 @task(retries=3)
 def extract_from_gcs(dataset_file: str,) -> Path:

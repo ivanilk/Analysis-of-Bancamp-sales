@@ -9,7 +9,7 @@ import configparser
 import wget
 import os
 config = configparser.ConfigParser()
-config.read('../config.ini')
+config.read(Path('../config.ini'))
 
 #task(retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
 @task(retries=3)
