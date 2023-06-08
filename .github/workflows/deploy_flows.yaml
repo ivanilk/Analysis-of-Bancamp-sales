@@ -55,6 +55,7 @@ jobs:
 
       - name: Prefect Cloud login
         run: |
+          prefect unset PREFECT_API_KEY
           prefect config set PREFECT_API_KEY=${{secrets.PREFECT_API_KEY}}
           prefect cloud workspace set --workspace "${{secrets.PREFECT_WORKSPACE}}"
 
