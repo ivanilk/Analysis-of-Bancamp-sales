@@ -16,10 +16,10 @@ The project will consist of three phases:
 - Data visualization and analysis: [Looker Studio](https://lookerstudio.google.com/) is used to create a dashboard that can display various metrics and charts related to the sales performance of bancamp.
 
 # Folder structure
-`.github/workflows/`: YAML files for GitHub Actions
-`dbt/`: dbt models are used to transform data for utilization in the Dashboard. 
-`flows/`: Prefect flows 
-`terraform/`: Terraform files defining Google Cloud resources
+ - `.github/workflows/`: YAML files for GitHub Actions
+- `dbt/`: dbt models are used to transform data for utilization in the Dashboard. 
+- `flows/`: Prefect flows 
+- `terraform/`: Terraform files defining Google Cloud resources
 
 # Technology 
 - Google Cloud Storage (GCS), as data lake
